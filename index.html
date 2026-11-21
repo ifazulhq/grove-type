@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Grove Type — A typing sprint with roots</title>
+  <meta name="description" content="A bold, playful typing speed game. Pick a 15, 30, or 60 second sprint, beat your personal best, and share a score card.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f3ead9">
+  <meta property="og:title" content="Grove Type — A typing sprint with roots">
+  <meta property="og:description" content="A bold, playful typing speed game. Pick a 15, 30, or 60 second sprint, beat your personal best, and share a score card.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f3ead9'/%3E%3Cpath d='M50 12C29 14 16 26 15 48c22 1 34-13 35-36Z' fill='%235c683c'/%3E%3Cpath d='M17 49C23 36 32 27 44 21' stroke='%23f3ead9' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      document.documentElement.classList.add("js");
+      try {
+        var stored = localStorage.getItem("grovetype.theme");
+        var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = stored || (dark ? "dark" : "light");
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#game" data-copy="skipLink"></a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav wrap" data-copy-aria="nav.mainLabel">
+      <a class="brand" href="#top" data-copy-aria="brand.homeLabel">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M20.5 3.5C11 4.5 4.6 10 4.5 19.5c9.5.1 15-6.3 16-15.6Z" fill="currentColor"/><path d="M4.5 19.5C7.2 13.6 11.6 9.4 17.4 6.6" fill="none" stroke="var(--brand-mark-line)" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </span>
+        <span class="brand__name"><span data-copy="brand.name"></span><em data-copy="brand.nameAccent"></em></span>
+      </a>
+      <ul class="nav__links" id="navLinks"></ul>
+      <div class="nav__actions">
+        <button class="theme-switch" id="themeToggle" type="button" role="switch" aria-checked="false" aria-label="Switch to dark mode">
+          <span class="theme-switch__track" aria-hidden="true">
+            <span class="theme-switch__thumb">
+              <span class="theme-switch__icon theme-switch__icon--sun">
+                <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+              <span class="theme-switch__icon theme-switch__icon--moon">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor"/></svg>
+              </span>
+            </span>
+          </span>
+        </button>
+        <a class="btn btn--small nav__play" href="#game" data-copy="nav.play"></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero__decor" aria-hidden="true">
+        <span class="blob blob--clay"></span>
+        <span class="blob blob--sage"></span>
+        <span class="blob blob--ochre"></span>
+      </div>
+      <div class="wrap hero__inner">
+        <div class="hero__copy">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span data-copy="hero.eyebrow"></span></p>
+          <h1 class="hero__title" id="heroTitle">
+            <span class="line" data-copy="hero.titleA"></span>
+            <span class="line"><span data-copy="hero.titleB"></span> <em data-copy="hero.titleAccent"></em></span>
+          </h1>
+          <p class="hero__lede" data-copy="hero.lede"></p>
+          <div class="hero__actions">
+            <a class="btn btn--accent" href="#game">
+              <span data-copy="hero.primaryCta"></span>
+              <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="link-arrow" href="#how">
+              <span data-copy="hero.secondaryCta"></span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v15M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <ul class="hero__stats" id="heroStats"></ul>
+          <p class="hero__hint" data-copy="hero.hint"></p>
+        </div>
+
+        <div class="hero__scene" id="heroScene" aria-hidden="true">
+          <div class="scene__ring"></div>
+          <div class="scene__blob"></div>
+          <div class="scene__caps" id="heroCaps"></div>
+          <div class="scene__badge">
+            <svg class="badge__orbit" viewBox="0 0 120 120" focusable="false">
+              <defs>
+                <path id="badgePath" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/>
+              </defs>
+              <text class="badge__text">
+                <textPath href="#badgePath" startOffset="0" textLength="274" lengthAdjust="spacing">
+                  <tspan id="badgeText"></tspan>
+                </textPath>
+              </text>
+            </svg>
+            <span class="badge__center">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M20.5 3.5C11 4.5 4.6 10 4.5 19.5c9.5.1 15-6.3 16-15.6Z" fill="currentColor"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span class="scroll-cue__line"></span><span class="scroll-cue__text" data-copy="hero.scrollCue"></span></div>
+    </section>
+
+    <div class="tape" aria-hidden="true">
+      <div class="tape__track" id="tapeTrack"></div>
+    </div>
+
+    <section class="section game-section" id="game">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-head__title">
+            <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span data-copy="game.eyebrow"></span></p>
+            <h2 data-copy="game.title"></h2>
+          </div>
+          <p class="section-head__lede" data-copy="game.lede"></p>
+        </div>
+
+        <div class="game-card reveal" id="gameCard">
+          <div class="game-top">
+            <div class="modes" id="modes" role="group" data-copy-aria="game.modesLabel"></div>
+            <div class="game-side">
+              <div class="best-pill">
+                <span class="best-pill__label"><span data-copy="game.bestLabel"></span><span class="best-pill__mode" id="bestModeLabel"></span></span>
+                <strong class="best-pill__value" id="bestValue">—</strong>
+              </div>
+              <button class="btn btn--ghost btn--small" id="endBtn" type="button" data-copy="game.endCta" disabled></button>
+            </div>
+          </div>
+
+          <div class="hud" id="hud">
+            <div class="hud__stats">
+              <div class="hud__stat">
+                <span class="hud__value" id="hudTime">30</span>
+                <span class="hud__label" data-copy="game.hud.seconds"></span>
+              </div>
+              <div class="hud__stat">
+                <span class="hud__value" id="hudWpm">0</span>
+                <span class="hud__label" data-copy="game.hud.wpm"></span>
+              </div>
+              <div class="hud__stat">
+                <span class="hud__value" id="hudAcc">100%</span>
+                <span class="hud__label" data-copy="game.hud.accuracy"></span>
+              </div>
+            </div>
+            <div class="hud__progress" aria-hidden="true"><span id="progressFill"></span></div>
+          </div>
+
+          <div class="type-stage" id="stage">
+            <div class="words-viewport" id="wordsViewport">
+              <div class="words" id="words" aria-hidden="true"></div>
+            </div>
+            <input class="type-input" id="typeInput" type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="next" value="">
+            <div class="stage-veil" id="stageVeil">
+              <span class="stage-veil__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M20.5 3.5C11 4.5 4.6 10 4.5 19.5c9.5.1 15-6.3 16-15.6Z" fill="currentColor"/></svg>
+              </span>
+              <h3 id="veilTitle" data-copy="game.idle.title"></h3>
+              <p id="veilHint" data-copy="game.idle.hint"></p>
+              <button class="btn btn--accent btn--small" id="startBtn" type="button" data-copy="game.idle.cta"></button>
+            </div>
+          </div>
+
+          <div class="game-foot">
+            <p class="game-hint" data-copy="game.footHint"></p>
+            <button class="text-btn" id="restartBtn" type="button" data-copy="game.restartCta"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section how-section" id="how">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-head__title">
+            <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span data-copy="how.eyebrow"></span></p>
+            <h2 data-copy="how.title"></h2>
+          </div>
+          <p class="section-head__lede" data-copy="how.lede"></p>
+        </div>
+        <div class="how-grid" id="howGrid"></div>
+      </div>
+    </section>
+
+    <section class="section scores-section" id="scores">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-head__title">
+            <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span data-copy="scores.eyebrow"></span></p>
+            <h2 data-copy="scores.title"></h2>
+          </div>
+          <p class="section-head__lede" data-copy="scores.lede"></p>
+        </div>
+
+        <div class="scores-panel reveal">
+          <div class="scores-grid">
+            <div class="scores-col">
+              <div class="panel-head">
+                <h3 data-copy="scores.bestPerMode"></h3>
+                <p data-copy="scores.bestPerModeSub"></p>
+              </div>
+              <div class="best-grid" id="bestGrid"></div>
+            </div>
+            <div class="scores-col scores-col--history">
+              <div class="panel-head panel-head--row">
+                <div>
+                  <h3 data-copy="scores.history"></h3>
+                  <p data-copy="scores.historySub"></p>
+                </div>
+                <button class="text-btn" id="clearScores" type="button" data-copy="scores.clearCta"></button>
+              </div>
+              <div class="history-list" id="historyList"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="wrap">
+        <div class="cta-band reveal">
+          <div class="cta-band__leaves" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><path d="M20.5 3.5C11 4.5 4.6 10 4.5 19.5c9.5.1 15-6.3 16-15.6Z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24" focusable="false"><path d="M20.5 3.5C11 4.5 4.6 10 4.5 19.5c9.5.1 15-6.3 16-15.6Z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24" focusable="false"><path d="M20.5 3.5C11 4.5 4.6 10 4.5 19.5c9.5.1 15-6.3 16-15.6Z" fill="currentColor"/></svg>
+          </div>
+          <div class="cta-band__copy">
+            <h2><span data-copy="cta.titleA"></span> <em data-copy="cta.titleAccent"></em></h2>
+            <p data-copy="cta.copy"></p>
+          </div>
+          <a class="btn btn--cream" href="#game">
+            <span data-copy="cta.cta"></span>
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand brand--footer" href="#top" aria-label="Grove Type, back to the top">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><path d="M20.5 3.5C11 4.5 4.6 10 4.5 19.5c9.5.1 15-6.3 16-15.6Z" fill="currentColor"/></svg>
+          </span>
+          <span class="brand__name"><span data-copy="brand.name"></span><em data-copy="brand.nameAccent"></em></span>
+        </a>
+        <p class="footer-tagline" data-copy="footer.tagline"></p>
+      </div>
+      <ul class="footer-links" id="footerLinks"></ul>
+      <div class="footer-meta">
+        <p data-copy="footer.privacy"></p>
+        <p class="footer-copy" id="footerCopy"></p>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <a class="footer-top" href="#top">
+        <span data-copy="footer.backToTop"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <div class="results" id="results" role="dialog" aria-modal="true" aria-labelledby="resultsTitle" hidden>
+    <div class="results__backdrop" data-close-results></div>
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+    <div class="results__card" id="resultsCard">
+      <div class="results__top">
+        <p class="eyebrow eyebrow--plain"><span class="eyebrow__dot" aria-hidden="true"></span><span data-copy="results.eyebrow"></span></p>
+        <button class="icon-btn" id="closeResults" type="button" data-copy-aria="results.closeLabel">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <h2 class="results__title" id="resultsTitle" data-copy="results.title"></h2>
+      <div class="results__hero">
+        <div class="results__score">
+          <span class="results__wpm" id="resWpm">0</span>
+          <span class="results__unit" data-copy="results.wpmLabel"></span>
+        </div>
+        <div class="results__sticker" id="resSticker" data-copy="results.newBest" hidden></div>
+      </div>
+      <div class="results__meta">
+        <span class="chip" id="resMode"></span>
+        <span class="results__best" id="resBestLine"></span>
+      </div>
+      <div class="results__stats">
+        <div class="results__stat">
+          <span class="results__stat-label" data-copy="results.stats.accuracy"></span>
+          <strong id="resAcc">0%</strong>
+        </div>
+        <div class="results__stat">
+          <span class="results__stat-label" data-copy="results.stats.characters"></span>
+          <strong id="resChars">0</strong>
+        </div>
+        <div class="results__stat">
+          <span class="results__stat-label" data-copy="results.stats.time"></span>
+          <strong id="resTime">0s</strong>
+        </div>
+      </div>
+      <div class="results__actions">
+        <button class="btn btn--accent results__share" id="shareResults" type="button">
+          <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V3m0 0L8 7m4-4 4 4M5 13v5a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-copy="results.shareCta"></span>
+        </button>
+        <div class="results__row">
+          <button class="btn btn--ghost btn--small" id="saveCard" type="button">
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-copy="results.saveCta"></span>
+          </button>
+          <button class="btn btn--small" id="againBtn" type="button">
+            <span data-copy="results.againCta"></span>
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="sr-only" id="liveRegion" aria-live="polite"></div>
+
+  <noscript>
+    <div class="noscript">Grove Type needs JavaScript to run its timer and save your scores. Please enable it and reload.</div>
+  </noscript>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
